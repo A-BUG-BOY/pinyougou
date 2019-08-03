@@ -133,7 +133,7 @@ public class ContentServiceImpl implements ContentService {
 			List<TbContent> list = (List<TbContent>) redisTemplate.boundHashOps("content").get(categoryId);
 			
 			if(list==null){
-				System.out.println("查询数据库===================");
+				System.out.println("查询数据库");
 				TbContentExample example = new TbContentExample();
 				Criteria criteria = example.createCriteria();
 				// 有效广告:
@@ -147,7 +147,7 @@ public class ContentServiceImpl implements ContentService {
 				
 				redisTemplate.boundHashOps("content").put(categoryId, list);
 			}else{
-				System.out.println("从缓存中获取====================");
+				System.out.println("从缓存中获取");
 			}
 			
 			
